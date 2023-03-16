@@ -1,0 +1,112 @@
+body {
+	height: 100%;
+	line-height: 1;
+	color: #000;
+	max-width: 100%;
+	font-size: 1rem;
+}
+
+.wrapper {
+	min-height:  100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.container {
+	max-width:1170px ;
+	padding: 0px 15px;
+	box-sizing: content-box;
+	margin: 0 auto;
+	width: 100%;
+}
+
+main{
+	flex: 1 1 auto;
+
+	padding: 2rem 0;
+}
+
+.page{
+}
+.form{
+	margin-bottom: 2rem;
+}
+input{
+	border: 1px solid #000;
+	padding: 0.625rem 1rem;
+	border-radius: 12px;
+	transition: .3s;
+}
+input:focus {
+	box-shadow: 0 0 10px 3px black;
+}
+button{
+	padding: 0.625rem 1rem;
+	border-radius: 12px;
+	font-size: 1.5rem;
+	background-color: #918888;
+}
+p{
+	line-height: 1.5;
+	
+
+}
+.cart-body{
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 2rem;
+}
+.modal {
+	font-family: sans-serif;
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 400px;
+	background-color: rgb(209, 84, 84);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	overflow: auto;
+}
+.modal-body{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	padding: 1rem;
+}
+.title {
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+.modal div{
+	font-size: 1.5rem;
+}
+
+.cart {
+	display: grid;
+	gap: 1rem;
+	max-width: 50%;
+}
+.cart div {
+	font-size: 1.5rem;
+	
+}
+.cart .button{
+	width: max-content;
+}
+.counter{
+	position: fixed;
+	top: 0;
+	right: 350px;
+	padding: 0.5rem;
+	color: rgb(163, 163, 223);
+	background-color: #000;
+	border-radius: 50px;
+	z-index: 100;
+}

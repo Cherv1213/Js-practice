@@ -1,0 +1,53 @@
+@import url("reset.css");
+@import url("body.css");
+/*--------------------*/
+.menu__body {
+   padding: 2rem;
+}
+.menu__list {
+   display: flex;
+   justify-content: space-around;
+}
+.menu__item {
+}
+.menu__button {
+   padding: 0.5rem 1rem;
+   background-color: red;
+   font-size: 2rem;
+   margin-bottom: 1rem;
+   border-radius: 10px;
+}
+.submenu {
+   display: flex;
+   flex-direction: column;
+   display: none;
+}
+.submenu__item {
+   background-color: lime;
+   padding: 5px 10px;
+   border-radius: 12px;
+   margin-bottom: 1rem;
+}
+.submenu__link {
+   color: #000;
+   font-size: 2rem;
+}
+
+.show {
+   display: block;
+   
+}
+.block{
+   width: 200px;
+   height: 200px;
+   background-color: red;
+   position: relative;
+   top: 50px;
+   bottom: 50px;
+}
+
+.name{
+   font-weight: 700;
+   font-size: 1.5rem;
+   color: limegreen;
+}
