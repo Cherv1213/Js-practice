@@ -92,14 +92,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
       const closeBttn = document.querySelectorAll('.item-remove');
 
-         closeBttn.forEach((item) => {
-            if(item){
-               item.addEventListener('click', () => {
-                  item.closest('modal-body').remove();
-               })
-            }
+        //  closeBttn.forEach((item) => {
+        //     if(item){
+        //        item.addEventListener('click', () => {
+        //           item.closest('modal-body').remove();
+        //        })
+        //     }
       })
     });
-  });
+  // });
 
 });
+
+
+

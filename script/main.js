@@ -226,12 +226,109 @@
    
 // }
 
-const a = ['a','b', 'c'];
-const obj = {
-   2:'a',
-   1: 'b',
-   7: 'c'
+// const a = ['a','b', 'c'];
+// const obj = {
+//    2:'a',
+//    1: 'b',
+//    7: 'c'
+// }
+
+// console.log(Object.getOwnPropertyNames(a));
+
+// const x = ['a','b','f','c',];
+// const rand = Math.floor(Math.random() * x.length);
+// const res = x[rand];
+// console.log(res);
+
+// function getRandomColor() {
+//    let characters = "0123456789ABCDEF";
+//    let color = '#';
+ 
+//    for (let i = 0; i < 6; i++) {
+//      color += characters[getRandomNumber(0, 15)];
+//    }
+   
+//    return color;
+//  }
+ 
+
+// const persone = {
+//    name: 'Vlad',
+//    age: 22,
+//    loginfo: function(job){
+//       console.log(`Name is ${this.name}, age: ${this.age}`);
+//       console.log(`Job is ${job}`);
+//    }
+// }
+
+// const lena = {
+//    name: 'Lena',
+//    age: 44
+// }
+
+// persone.loginfo.bind(lena,'Frontend')();
+// persone.loginfo.call(lena,'Frontend');
+// persone.loginfo.apply(lena,['Frontend']);
+
+
+
+// function logPersone(){
+//    console.log(`Persone: ${this.name}, ${this.age}, ${this.job}`);
+// }
+// const persone1 = {name:'Mihail', age: 22, job: 'Front'}
+// const persone2 = {name:'Elena', age: 55, job: 'SMM'}
+
+
+// function bind (context, fn){
+//    return function(...arrg) {
+//       fn.apply(context, arrg)
+//    }
+// }
+// bind(persone1,logPersone)();
+// bind(persone2,logPersone)();
+
+
+
+
+
+ console.log('Request data...');
+   
+const p = new Promise((resolve, reject) => {
+   setTimeout(() => {
+      console.log('Prepearing data...');
+      const backend = {
+         server: 'aws',
+         port: 2000,
+         status:'working'
+      }
+      resolve(backend);
+   },2000)
+})
+p.then(data => {
+      return new Promise ((resolve, reject)=> {
+         setTimeout(() => {
+            data.modified = true
+            resolve(data)
+         },2000)
+      })
+   
+}).then(clientData => {
+   console.log('Data received', clientData)
+})
+.catch(err => console.log('Error', err))
+.finally(() => console.log('Finnaly'));
+
+const sleep = ms => {
+   return new Promise( resolve => {
+      setTimeout(() => resolve(),ms)
+   })
 }
 
-console.log(Object.getOwnPropertyNames(a));
-
+// ждет, когда все промисы выполнятся 
+Promise.all([sleep(2000), sleep(5000)]).then (() => {
+   console.log('All promises');
+})
+// не ждет, а выполняется , когда 1й срабатывает
+Promise.race([sleep(2000), sleep(5000)]).then (() => {
+   console.log('RAce promises');
+})
