@@ -332,3 +332,106 @@ Promise.all([sleep(2000), sleep(5000)]).then (() => {
 Promise.race([sleep(2000), sleep(5000)]).then (() => {
    console.log('RAce promises');
 })
+
+// class Animal { 
+//    static type = 'ANIMAL'
+//    constructor(options) {
+//       this.name = options.name,
+//       this.age = options.age,
+//       this.hasTail = options.hasTail
+//    }
+//    voice() {
+//       console.log('I am Animal');
+      
+//    }
+// }
+// const animal = new Animal({
+//    name: 'Animal',
+//    age: 5,
+//    hasTail: true
+// })
+// console.log(animal.voice());
+
+class Commponent{
+   constructor(selector){
+      this.$el = document.querySelector(selector)
+   }
+   hide(){
+      this.$el.style.display = 'none';
+   }
+
+   show(){
+      this.$el.style.display = 'block';
+   }
+}
+
+class Box extends Commponent {
+   constructor(options) {
+      super(options.selector)
+      this.$el.style.width = this.$el.style.height = options.size + 'px';
+      this.$el.style.background = options.color;
+   }
+}
+
+const box1 = new Box({
+   selector:'#box1',
+   size: 100,
+   color: 'red'
+})
+const box2 = new Box({
+   selector:'#box2',
+   size: 200,
+   color: 'black'
+})
+
+class Circle extends Box {
+   constructor(options){
+      super(options)
+
+      this.$el.style.borderRadius = '50%';
+   }
+}
+
+const c = new Circle ({
+   selector: '#circle',
+   size: 300,
+   color: 'green'
+})
+
+// function fetchTodos() {
+//    console.log('fetch todo start');
+//    return delay(2000)
+//       .then(() =>  fetch(url))
+//       .then(respons => respons.json())
+// }
+
+// fetchTodos()
+// .then(data => {
+//    console.log('Data:', data);
+   
+// })
+// .catch(e => console.error(e))
+const delay = ms => {
+   return new Promise( resolve => setTimeout(() => resolve(), ms))
+}
+const url = 'https://jsonplaceholder.typicode.com/todos';
+
+
+async function fetchAsyncTodos() {
+   try{
+      console.log('fetch todo start')
+      await delay(2000)
+      const response  = await fetch(url)
+      const data = await response.json()
+      console.log('Data:', data);
+   }
+   catch(e) {
+      console.error(e)
+   }
+   finally{
+      
+   }
+  
+}
+fetchAsyncTodos()
+
